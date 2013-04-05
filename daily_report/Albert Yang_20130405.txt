@@ -1,0 +1,5 @@
+        Today, I got the task I have to learn in the following days.
+I have to work hard to be adequate to my job. 
+        I am very happy today, because my director introduced a teacher to me, I will learn from him, how happy things it should be!
+         And today, I learned some knowledge of linux modules, and learned the structure of modules, through compiling and debugging the procedure, I learned some skills of debugging, and learned some rules of writting MAKEFILE.
+        I think today I learned too much knowledge, I will work harder to be adequate to the job as soon as possible.  
