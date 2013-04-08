@@ -1,5 +1,8 @@
-	After two days of rest of last weekends, now it's monday, I should invest my energy in work.My brother-in-law and my elder sister and me went fishing on sunday, what a wonderful day it is for fishing, sunny, not cold or hot, the air is very fresh in countryside. At last, we got a good harvest.
-	How time flies, it's monday, according to the plan, I begin to study the linux drivers. Today, I wrote a simple linux module, and maked it successfully. 
+	After two days of rest of last weekends, now it's monday, I should invest my energy in work.My brother-in-law 
+and my elder sister and me went fishing on sunday, what a wonderful day it is for fishing, sunny, not cold or hot, the 
+air is very fresh in countryside. At last, we got a good harvest.
+	How time flies, it's monday, according to the plan, I begin to study the linux drivers. Today, I wrote a simple
+linux module, and maked it successfully. 
 	In the coming days, I think it's full of challenge and chanllenge.
     come on, Albert!
 
