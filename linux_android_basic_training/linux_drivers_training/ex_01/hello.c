@@ -41,8 +41,8 @@ static void hello_exit(void)
 }
 
 
-module_init(hello_init);  //指定加载函数
-module_exit(hello_exit);  //指定卸载函数
+module_init(hello_init);  //assign the loading function
+module_exit(hello_exit);  //assign the uninstall function
 
 
 /*
