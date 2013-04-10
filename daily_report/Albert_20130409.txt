@@ -1,9 +1,9 @@
 	Today is Tuesday, sunny, a bit hot outside, maybe summer is comming.
-        In theses days, durning studying time I get a bit of studying
+    In theses days, durning studying time I get a bit of studying
 pressure. Today I learned some basic knowledge of system call, such as 
-creat(), open(), read(), close(), fopen(),fputs(),fgets(), fclose() and so
-on.
-        Although it is a little difficult for me later on, my heart is full
-of energy to face up to study Linux Device Drivers, I am going to find
-something intresting in it.
+creat(), open(), read(), close(), fopen(),fputs(),fgets(), fclose() and
+so on.
+	Although it is a little difficult for me in the future, my heart 
+is full of energy to face up to study Linux Device Drivers, I am going to
+find something interesting in it.
 	
