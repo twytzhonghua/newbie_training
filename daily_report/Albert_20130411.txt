@@ -1,0 +1,11 @@
+	Today is Thursday, the weather is hot. It's easier 
+to make people feel tired in this season. The daytime 
+becomes longer, it means we have less time for the sleep
+durning the night. So we should take a break at noon in 
+order to get enough energy to work in the afternoon.
+	All the day, I continued studying the Linux drivers.
+As a result, I mastered how to call functions of module with
+application, and swapping data between kernel and user space.
+	I find some functions are more interesting in writting 
+kernel drivers, I will keep this passion on studying kernel 
+drivers.
