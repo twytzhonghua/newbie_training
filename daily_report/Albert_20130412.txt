@@ -1,0 +1,12 @@
+	Today is Friday, it is still hot. Tommorow is 
+weekends, and a busy and substantial weekdays  is over.
+we will have two days for a rest. How I hope that this
+weekends will be cool not like these days that are so
+hot. If my wish becomes true, I'll go fishing with my 
+sisters and elder brother in law,too.
+	Today I spent almost all my worktime on learning the
+linked list of C program. I feel a little difficult, as 
+I never used it before. Through studying this knowledge,
+I realize that linked list is superior than Structure 
+Array in using RAM.
+	Tomorrow is another day, come on!
