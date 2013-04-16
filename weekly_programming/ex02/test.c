@@ -35,6 +35,14 @@ int count_bit_one(int i)
 	int count = 0;
 	unsigned int test = 1;
 
+	/*
+	*test first value is 00000000000000000000000000000001, 
+	*	after one loop   00000000000000000000000000000010,
+	*	......
+	*					 10000000000000000000000000000000,
+	*	after one loop, test become negative value because of it's unsigned int type,
+	*	then break while
+	*/
 	while(test)
 	{
 		if(i & test)
