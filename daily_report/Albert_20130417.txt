@@ -1,0 +1,12 @@
+	Today is Wednesday, the weather become cooler, it's 
+really a good time for fishing. Half of weekdays have 
+passed, the weekends will become soon. There is something
+that I still worry about, the task I have not finished. 
+I wish I could finish all the rest of the task in order to 
+play without uneasy at weekends.
+	Today I continued studying the char device driver, 
+step by step, I learned how to fill the function, and use
+the function parameter such as loff_t *offset, struct file
+*filp and so on. I gradually I find it's more and more 
+interesting to write and debug char device drivers.
+	Time and tide wait for no man, hurry up!
