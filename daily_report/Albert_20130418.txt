@@ -1,0 +1,13 @@
+	Today is Thursday, it becomes a bit cold suddenly. 
+Maybe because it got cloudy, I felt a bit of pressure.
+All the day I kept debugging the device driver, and 
+didn't get much progress. 
+	When at college, teacher said you would pay
+most of time on debugging program in a project, at 
+first I didn't understand it is fact. Durning these
+days of learning char device driver I deeply perceived 
+that a rigorous way of thingking is so important.
+	Nothing in the world is difficult for one who sets
+his mind to do it. Be more careful, evidence of 
+persistence, only in this way we can save twists and 
+turns. 
