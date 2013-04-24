@@ -1,0 +1,11 @@
+	Today is Tuesday, rainy in the morning, maybe because it
+rained, the traffic became traffic jams on my way to work. I 
+kept being worried about to be late for work. At last I arrived
+at the company about twenty-five past eight, what a breathtaking
+morning it was. 
+	Almost late for work, I should reschedule my time in rainy 
+days. 
+	Today I continued learning some knowledge of "concurrency and
+race", and I find it's becoming more and more interesting in 
+learning linux device drivers. I will keep working hard to be an 
+excellent driver software engineer.
