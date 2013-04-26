@@ -11,9 +11,9 @@
 *** 		Albert Yang, Apri 23,13
 ***
 ***	Modification History:
-***			Apri 24, 13
+***			Apri 26, 13
 ***	Note:
-***
+**
 ************************************************************************************************/
 #include <linux/semaphore.h>/*For sema_init(),down(),up()*/
 #include <linux/miscdevice.h>/*For struct miscdevice ...*/
@@ -30,6 +30,7 @@
 #include <linux/errno.h>/*For error symbol*/
 #include <linux/slab.h>  /*for kmalloc()*/
 #include <linux/sched.h>  
+#include <linux/delay.h>  
 
 #define DEV_SIZE 100
 #define  MISC_NAME "concur_race"
@@ -117,12 +118,12 @@ ssize_t misc_read(struct file *filp, char __user *buf, size_t count, loff_t *off
 		printk("Kernel test_read failed\n");
 	}
 		
-		/*
-		*release the semaphore
-		*/
-		up(&dev->sem);
+	/*
+	*release the semaphore
+	*/
+	up(&dev->sem);
 
-		return ret;
+	return ret;
 }
 
 
@@ -153,8 +154,14 @@ ssize_t misc_write(struct file *filp, char __user *buf, size_t count, loff_t *of
 
 	
 	/*
+	*Get the semaphore
+	*/
+	if(down_interruptible(&dev->sem)) 
+		return -ERESTARTSYS;
+	/*
 	*Check write successfully or not
 	*/
+	printk("before writing\n");
 	if(!copy_from_user(dev->kbuf+*offset,(void *)buf,count))
 	{
 		ret = count;
@@ -167,7 +174,16 @@ ssize_t misc_write(struct file *filp, char __user *buf, size_t count, loff_t *of
 		ret = -EFAULT;
 	}
 
+	/*
+	*you must execute the thest app twice in 8 seconds to test the concurrency and race.
+	*/
+	ssleep(8);
 
+	/*
+	*release the semaphore
+	*/
+	up(&dev->sem);
+	printk("sleepping is over, you can write \n");	
 	return ret;
 }
 
