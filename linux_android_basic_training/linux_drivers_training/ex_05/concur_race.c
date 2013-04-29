@@ -307,8 +307,12 @@ static int __init misc_init(void)
 static void __exit misc_exit(void)
 {
     printk("Goodbye kernel!\n");
-	
-	kfree(devp);//delete structure pointer
+
+	if(devp != NULL)	
+	{
+		kfree(devp);//delete structure pointer
+		devp = NULL;
+	}
 	misc_deregister(&misc_dev);	
 }
 
