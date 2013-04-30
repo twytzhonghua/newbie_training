@@ -10,6 +10,8 @@
 ***	Author/Creat Date:
 *** 		Albert Yang, Apri 29,13
 ***
+***	Modification History:
+***			Apr 30, 13
 ***	Note:
 *** 	
 ****************************************************************************/
@@ -32,7 +34,7 @@ int main(void)
 	
 
 	/*open device*/
-	fd = open("/dev/concur_race",O_RDWR);
+	fd = open("/dev/count_time",O_RDWR);
 	if(fd < 0 )
 	{
 	printf("open failed!\n");

@@ -1,4 +1,4 @@
-obj-m := concur_race.o
+obj-m := count_time.o
 
 KERNELDIR ?= /usr/src/linux-headers-2.6.38-8-generic/
 PWD := $(shell pwd)
