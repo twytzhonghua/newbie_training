@@ -1,0 +1,13 @@
+	Today is Monday, rainy. When I was waiting 
+for the bus, it became a little cloudy, then
+it rained in the morning. The air becomes fresh,
+and my mood gets better.
+	Today I continued learning the knowledge of
+Android, and felt a bit pressure, because I am
+not familiar with the Android APIs and the Java
+language. 
+	Through about a month of working, I find that
+I am becoming to like studying from heart, I am
+eager to do linux device driver work independently
+the sooner the better.
+	
