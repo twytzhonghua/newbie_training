@@ -1,0 +1,12 @@
+	Today is Friday, sunny. 
+	Time flows in no feel, every day when I
+go back home from work, I feel that it just
+like time goes by between a blink, I usually 
+can't find how it goes by so quickly.
+	These days I keep studying how to create
+node under /dev in real Android device, and I 
+encounter some problems. I realize that I should
+be adapt to get useful information in big project,
+and grasp basic knowledge of linux driver.
+	Come on!
+
