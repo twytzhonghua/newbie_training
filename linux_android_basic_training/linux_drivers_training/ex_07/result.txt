@@ -1,0 +1,8 @@
+root@android:/ # 
+root@android:/ # cd de
+default.prop dev/         
+root@android:/ # cd dev                                                        
+echo "echo test">chardrv_test                                              
+root@android:/dev # cat chardrv_test                                           
+echo test
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
