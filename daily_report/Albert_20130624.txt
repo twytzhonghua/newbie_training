@@ -1,0 +1,14 @@
+	Today is Monday, the first day of this week, the 
+weather is windy, the weather forecast says it will rain
+last servel days this week.
+	Now, I doesn't trust in the weather forecast any
+more, because it doesn't become ture accurately. Last 
+Saturday, the forecast said  it would rain, then I didn't
+decided to go fishing, then I got up I found it was so 
+cool, then we went fishing, but the weather was so hot,
+we got even a little burned for the strong sunshine.
+	Today I learn how to create node under /proc,
+I find some sample in the kernel about the usage of
+create_proc(), then I try to insert the function in
+my old codes, and it work it out.
+	
