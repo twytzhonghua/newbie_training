@@ -1,0 +1,12 @@
+	Today is Tuesday, cloudy.
+	When I left home to go work in the morning, my elder
+sister reminded me carry along an umbrella, it turned
+out to be she was right. Near five o'clock, it became
+very cloudy, and it is unavoidable to rain heavily.
+	Today I learned some knowledge of how to create
+nodes under /sys, I found the source codes in the kernel,
+and learnt the relevant function useage. Step by step,
+I find it is not so difficult to learn the strange device
+driver, the kernel show so many samples all kinds of functions
+usage, we can refer these sources, so it become easier to
+do the relevant work.
