@@ -1,0 +1,12 @@
+	Today is Wednesday, sunny in the morning, and it 
+became cloudy later. 
+	Time flew quickly, especially when I am debugging 
+the program, I find some samples in kernel, and there 
+are some differences between them and char drivers. I 
+tried several times to transplant the source codes to 
+my char driver codes, when I tried to insmod  the module, 
+the oops occurred.  
+	With time goes by, I should speed up to finish 
+the first phase of training the sooner the better.
+	Just go for the target. Come on!
+
