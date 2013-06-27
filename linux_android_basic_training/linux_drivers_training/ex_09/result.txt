@@ -4,5 +4,5 @@ my_proc
 root@android:echo "proc test echo" > my_proc                                         
 root@android:/proc/albert # cat my_proc                                        
 proc test echo
-kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkroot@android:/proc/albert # 
+root@android:/proc/albert # 
 

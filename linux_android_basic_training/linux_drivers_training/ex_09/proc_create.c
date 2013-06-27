@@ -34,9 +34,10 @@
 #include <linux/sched.h>  
 #include <linux/delay.h>
 #include <linux/proc_fs.h>
+#include <linux/mm.h>
 
 #define DEV_SIZE 100
-#define  MISC_NAME "chardrv_test"
+
 
 /*
 *declare the struct my_data, contains private data
@@ -55,17 +56,17 @@ struct my_data *devp ;//decalre a structure pointer, then use kmalloc() to alloc
 struct proc_dir_entry *proc_parent = NULL; 
 
 
-int misc_open(struct inode *node,struct file *filp)
+int proc_open(struct inode *node,struct file *filp)
 {
 
 	filp->private_data = devp; // give the structure pointer to filp->private_data
-	printk("This is misc_open\n");
+	printk("This is proc_open\n");
 	return 0;
 }
 	
-int misc_close(struct inode *node,struct file *filp)
+int proc_close(struct inode *node,struct file *filp)
 {
-	printk("This is misc_close\n");
+	printk("This is proc_close\n");
 	return 0;
 }
 
@@ -78,10 +79,15 @@ int misc_close(struct inode *node,struct file *filp)
 ***			If read sucessfully, return the bytes that have readed.
 *******************************************************************************************/
 
-static ssize_t misc_read(struct file *filp, char __user *buf, size_t count, loff_t *offset)
+static ssize_t proc_read(struct file *filp, char __user *buf, size_t count, loff_t *offset)
 {
 	int ret;
 	struct my_data *dev = filp->private_data;
+
+	/*同步访问*/  
+	if(down_interruptible(&(dev->sem))) {  
+	        return -ERESTARTSYS;          
+	}    
 	/*
 	*check the size of *offset,if *offset out of the array, return;
 	*/
@@ -118,7 +124,8 @@ static ssize_t misc_read(struct file *filp, char __user *buf, size_t count, loff
 		printk("Kernel test_read failed\n");
 	}
 		
-
+	up(&(dev->sem));
+	
 	return ret;
 }
 
@@ -130,12 +137,16 @@ static ssize_t misc_read(struct file *filp, char __user *buf, size_t count, loff
 ***	Return Value:
 ***			If write sucessfully, return the bytes that have written.
 *******************************************************************************************/
-static ssize_t misc_write(struct file *filp, char __user *buf, size_t count, loff_t *offset)
+static ssize_t proc_write(struct file *filp,const char __user *buf, size_t count, loff_t *offset)
 {
 	int ret;
 	
 
 	struct my_data *dev = filp->private_data;
+	
+	if(down_interruptible(&(dev->sem))) {  
+	        return -ERESTARTSYS;          
+	}  
 
 	/*
 	*check the size of *offset,if writing off the end of the array, return;
@@ -149,7 +160,8 @@ static ssize_t misc_write(struct file *filp, char __user *buf, size_t count, lof
 		printk("offset + count > DEV_SIZE,error\n");
 		return -1;
 	}
-
+	
+	
 	
 	/*
 	*Check write successfully or not
@@ -167,8 +179,8 @@ static ssize_t misc_write(struct file *filp, char __user *buf, size_t count, lof
 		ret = -EFAULT;
 	}
 	
-	
-	printk("sleepping is over, you can write \n");	
+	up(&(dev->sem));
+
 	return ret;
 }
 
@@ -180,7 +192,7 @@ static ssize_t misc_write(struct file *filp, char __user *buf, size_t count, lof
 /*****************************************************************************************
 ***	Description:	file location function	
 *******************************************************************************************/
-loff_t misc_llseek(struct file *filp, loff_t offset, int whence)
+loff_t proc_llseek(struct file *filp, loff_t offset, int whence)
 {
 	/*
 	*declare the new_pos, old_pos
@@ -230,11 +242,11 @@ loff_t misc_llseek(struct file *filp, loff_t offset, int whence)
 *The struct file_operations
 */
 struct file_operations proc_fops={
-	.open = misc_open,
-	.release = misc_close,
-	.read = misc_read,
-	.write = misc_write,
-	.llseek = misc_llseek,
+	.open = proc_open,
+	.release = proc_close,
+	.read = proc_read,
+	.write = proc_write,
+	.llseek = proc_llseek,
 };
 
 
@@ -243,8 +255,7 @@ static int  create_proc(void)
      proc_parent= proc_mkdir("albert", NULL);//create albert diretory under /proc 
  
      if (proc_parent) {
-         proc_create("my_proc", S_IRUGO, proc_parent,//create device node under /proc/albert
-                     &proc_fops);
+         proc_create("my_proc", S_IRUGO, proc_parent,&proc_fops);//create device node under /proc/albert
          return (1);
      }
      return (0);
@@ -257,15 +268,6 @@ static void remove_proc(void)
 	remove_proc_entry("albert", NULL);
 }
 
-/*
-*fill the content of struct miscdevice
-*/
-static struct miscdevice misc_dev=
-{
-	.minor = MISC_DYNAMIC_MINOR,//Dynamically allocate minor device
-	.name = MISC_NAME,
-	.fops = &proc_fops,
-};
 
 /*
 *Loading function
@@ -273,7 +275,6 @@ static struct miscdevice misc_dev=
 static int __init proc_init(void)
 {
 
-	int ret;
 	devp = kmalloc(sizeof(struct my_data),GFP_KERNEL);//allocate space for devp
 	if(!devp)
 	{
@@ -281,18 +282,10 @@ static int __init proc_init(void)
 		return -ENOMEM;
 	}
 
-
+	memset(devp, 0, sizeof(struct my_data)); 
 	/*
-	*register the miscdevice
+	*create device under proc
 	*/
-	ret = misc_register(&misc_dev);
-	if(ret)
-	{
-		printk("misc_register error\n");
-		return ret;
-	
-	}
-	
 	if(!create_proc())
 	{
 		printk("Create proc device failed!!!\n");
@@ -301,12 +294,10 @@ static int __init proc_init(void)
 	{
 		printk("Create proc device successfully!\n");
 	}
-	/*
-	*initialize the semaphore
-	*
-	*note:
-	*	after kernel 2.6.25, init_NUTEX() is abandoned. Now we use sema_init() instead.
-	*/
+	
+	
+	sema_init(&devp->sem,1); 
+	
 	printk("Hello kernel!\n");
 	return 0;
 }
@@ -317,14 +308,14 @@ static int __init proc_init(void)
 */
 static void __exit proc_exit(void)
 {
-    printk("Goodbye kernel!\n");
+	printk("Goodbye kernel!\n");
 
 	if(devp != NULL)	
 	{
 		kfree(devp);//delete structure pointer
 		devp = NULL;
 	}
-	misc_deregister(&misc_dev);	
+		
 	remove_proc();
 
 
