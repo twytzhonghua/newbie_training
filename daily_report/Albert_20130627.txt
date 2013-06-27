@@ -1,0 +1,14 @@
+	Today is Thursday, rainy. The weather forecast 
+become true, it rains all the day.
+	Today I continued learning how to create nodes under
+/sys, and worked it out. I am very happy that I 
+finished it finally. Suddenly I find it is so important
+to master the skills of finding information in kernel
+source codes. The kernel provide some documents to 
+help the developers and the information is very precious,
+it is the most direct way to get the things you need.
+	"The kernel is an art", some one says, I think it 
+is similar to the calligraphy, only you master the 
+details, you can understand what's behind it and use 
+it skillfully.
+
