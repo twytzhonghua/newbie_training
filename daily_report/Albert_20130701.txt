@@ -1,0 +1,14 @@
+	Today is Monday, the first day of July, sunny,
+a little hot. It seems like if it doesn't rain, the
+weather is very hot. Maybe because it is hot summer.
+	Today I tried to get some gpios' value, but the 
+result still keep the same, I referred to some information
+from internet and kernel source codes, and didn't find
+the reason.
+	Debugging is a headache thing, the most depressing
+thing is that you don't know where to debug. So we should
+have an orderly mind.
+	Everyone has limited energy, so we should keep good
+status to accomplish our work efficiently. A good habit is 
+very important.
+
