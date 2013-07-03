@@ -1,0 +1,17 @@
+	Today is Tuesday, hot, very hot, especially
+in rush hour, the outside temperture gets higher
+about 37. If it winds, something gets better.
+    Today I found that my way of reading the
+the gpios' vaule was error, because I read all
+gpios' value, the result stayed the same. I thought
+I should find another method to overcome the question.
+So I searched some useful codes in the Mango source codes
+all the morning, about at noon, I got some useful
+information, and found out the reason. Because this cpu
+is too new that the linux kernel didn't define relevant
+registers and GPIOs, they defined them by themselves.
+    Search the useful information in the large source
+codes is important, and necessary. I should develop good
+habits and skills of searching useful information in source 
+codes.
+	
