@@ -1,0 +1,13 @@
+	Today is Thursday, hot.
+	I continued to learn another way to get the
+result that I kept looking for. I remembered 
+the way of operating the registers when I studied
+the ARM SOC, and I searched some information of
+converting the physical address to virtual address,
+in linux kernel, ioremap function can work it out.
+	So I inserted the second way of reading registers'
+value and get the relevant bit value of gpio. At last,
+the result stayed the same with before.
+	Like supervisor said, we should get the ability of 
+understand the hardware circuit diagram, when we 
+communicate with hardware engineer, it become easier. 
