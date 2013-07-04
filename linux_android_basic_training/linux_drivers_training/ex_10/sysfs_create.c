@@ -307,6 +307,7 @@ static void remove_proc(void)
 */
 static int __init proc_init(void)
 {
+	int retval=0;
 
 	devp = kmalloc(sizeof(struct my_data),GFP_KERNEL);//allocate space for devp
 	if(!devp)
@@ -330,14 +331,18 @@ static int __init proc_init(void)
 	}
 	
 	kobj = kobject_create_and_add("albert",NULL); //create directory /sysfs under /sys
-    if(!kobj )  
+	if(!kobj )  
     {  
         printk( "kobject don't create \n");  
         return -ENOMEM;  
     }  
     sema_init(&devp->sem,1); 
-    printk("Hello kernel\n");
-  return  sysfs_create_group(kobj, &grp); 
+	printk("Hello kernel\n");
+	retval =  sysfs_create_group(kobj, &grp); 
+	if (retval)
+		kobject_put(kobj);
+
+     return retval;
 }
 
 
@@ -356,7 +361,7 @@ static void __exit proc_exit(void)
 		
 	if(kobj != NULL)	
 	{
-		kfree(kobj);//delete structure pointer
+		kobject_put(kobj);
 		kobj = NULL;
 	}
 
