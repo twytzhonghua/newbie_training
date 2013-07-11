@@ -1,0 +1,13 @@
+	Today is Thursday, the weather still keeps very hot.
+In the morning, I continued to analysis the bluetooth
+address from Mango sources code according to the log.
+Firstly, I didn't adapt to view codes in large-scale 
+project, the function's relationship is so complicated.
+But in the end, I find some useful information, it reads
+some data from driver device. 
+	I thought I should find the driver source codes to 
+analysis and give out the result. Then I encountered a 
+problem, I found out the node's name, but couldn't find
+the source name. Find out useful information in large
+codes is so important, keep clear thinking, I think
+I will get the result in the short run.
