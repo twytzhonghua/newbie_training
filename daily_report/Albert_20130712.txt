@@ -1,0 +1,13 @@
+	Today is Friday, hot, a week passed quickly.
+Now I feel the work time flows so quickly, the
+study and work efficiency should be improved.
+	Today I kept to search the details that is
+read to BT address, finally I found out the
+driver codes about BT, but I can't find the
+storage area  when it is wrote. I realized that 
+I should enhance the learning of device driver 
+and the kernel mechanism.
+	The road of studying kernel and driver is long,
+keep a heart of modesty and eagerness to learn, I 
+think tomorrow will be  better.
+
